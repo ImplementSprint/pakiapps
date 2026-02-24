@@ -253,7 +253,7 @@ jobs:
     name: "Notify Pipeline Status"
     needs: [frontend, active-systems, deploy-test, deploy-uat]
     if: always()
-    uses: ImplementSprint/central-workfloww/.github/workflows/notifications.yml@main
+    uses: ImplementSprint/central-workflow/.github/workflows/notifications.yml@main
     with:
       status: ${{ (needs.frontend.result == 'success' || needs.frontend.result == 'skipped') && 'success' || (needs.frontend.result == 'cancelled' && 'cancelled' || 'failure') }}
       system-dir: ${{ needs.active-systems.outputs.active_label }}
