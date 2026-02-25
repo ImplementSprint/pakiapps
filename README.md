@@ -1,4 +1,4 @@
-# FE Multi Template Repo Starter
+# FE Multi Template Repo Starter 
 
 Starter for a multi-app Next.js monorepo that calls the central FE Multi pipeline.
 
