@@ -27,15 +27,6 @@ on:
         type: boolean
         default: false
 
-jobs:
-  skip-if-central-workflow:
-    if: ${{ github.repository == 'ImplementSprint/central-workflow' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Skip workflow in central-workflow repo
-        run: echo "This workflow is not intended to run in the central-workflow repository."
-
-
 permissions:
   contents: write
   packages: write
@@ -47,6 +38,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  skip-if-central-workflow:
+    if: ${{ github.repository == 'ImplementSprint/central-workflow' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip workflow in central-workflow repo
+        run: echo "This workflow is not intended to run in the central-workflow repository."
+
   master-orchestrator:
     if: ${{ github.repository != 'ImplementSprint/central-workflow' }}
     name: "Call Master Orchestrator"
